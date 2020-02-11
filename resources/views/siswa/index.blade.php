@@ -13,7 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif --}}
-                    <a href="{{route('siswa.create')}}"class="btn btn-light"><b>Tambah Siswa(+)</b></a>
+                    <a href="{{route('siswa.create')}}"class="btn btn-outline-light float-right"><b>Tambah Siswa(+)</b></a>
                     <table class="table">
                         <thead>
                             <th>Nama Siswa</th>
