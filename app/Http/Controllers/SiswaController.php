@@ -24,7 +24,7 @@ class SiswaController extends Controller
         $siswa->nama = $request->nama;
         $siswa->kelas = $request->kelas;
         $siswa->save();
-        return redirect()->route('siswa.index');
+        return redirect()->route('siswa.index')->with(['message' => 'Data Siswa Berhasil disimpan']);
     }
 
     public function show($id)
@@ -45,13 +45,13 @@ class SiswaController extends Controller
         $siswa->nama = $request->nama;
         $siswa->kelas = $request->kelas;
         $siswa->save();
-        return redirect()->route('siswa.index');
+        return redirect()->route('siswa.index')->with(['message' => 'Data Siswa Berhasil disimpan']);
     }
 
     public function destroy($id)
     {
         $siswa = Siswa::findOrFail($id);
         $siswa->delete();
-        return redirect()->route('siswa.index');
+        return redirect()->route('siswa.index')->with(['message' => 'Data Siswa Berhasil dihapus']);
     }
 }
