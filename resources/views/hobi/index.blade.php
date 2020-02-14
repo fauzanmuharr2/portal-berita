@@ -12,25 +12,21 @@
             <div class="card">
                 <div class="card-header"><center><b>Data Siswa/i SMK ASSALAAM</b></center></div>
                 <div class="card-body">
-                    <a href="{{route('siswa.create')}}"class="btn btn-outline-light float-right"><b>Tambah Siswa(+)</b></a>
+                    <a href="{{route('hobi.create')}}"class="btn btn-outline-light float-right"><b>Tambah Hobi(+)</b></a>
                     <table class="table">
                         <thead>
-                            <th>Nama Siswa</th>
-                            <th>Kelas</th>
-                            {{-- <th>Hobi</th> --}}
+                            <th>Jenis Hobi</th>
                             <th>Aksi</th>
                         </thead>
                         <tbody>
-                            @foreach ($data as $item)
+                            @foreach ($hobi as $item)
                             <tr>
-                                <td>{{$item->nama}}</td>
-                                <td>{{$item->kelas}}</td>
-                                {{-- <td> {{$item->hobi}} </td> --}}
-                            <form action="{{route('siswa.destroy', $item->id)}}" method="post">
+                                <td>{{$item->hobi}}</td>
+                            <form action="{{route('hobi.destroy', $item->id)}}" method="post">
                                 @csrf
                                 @method('DELETE')
-                                <td><a class="btn btn-primary" href="{{route('siswa.show', $item->id)}}">Lihat</a>|
-                                <a class="btn btn-warning" href="{{route('siswa.edit', $item->id)}}">Edit</a>|
+                                <td><a class="btn btn-primary" href="{{route('hobi.show', $item->id)}}">Lihat</a>|
+                                <a class="btn btn-warning" href="{{route('hobi.edit', $item->id)}}">Edit</a>|
                                 <button type="submit" class="btn btn-danger">Hapus</button>
                                 </tr>
                                 </td>

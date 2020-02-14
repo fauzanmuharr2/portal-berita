@@ -50,7 +50,7 @@ class TabunganController extends Controller
         $tabungan->siswa_id = $request->siswa_id;
         $tabungan->jumlah_uang = $request->jumlah_uang;
         $tabungan->save();
-        return redirect()->route('tabungan.index')->with(['message' => 'Data Siswa Berhasil disimpan']);
+        return redirect()->route('tabungan.index')->with(['message' => 'Data Tabungan Berhasil disimpan']);
     }
 
 
@@ -64,7 +64,7 @@ class TabunganController extends Controller
     {
         $tabungan = Tabungan::findOrFail($id);
         $siswa = Siswa::all();
-        return view('tabungan.edit', compact('tabungan', 'siswa'))->with(['message' => 'Data Siswa Berhasil diedit']);
+        return view('tabungan.edit', compact('tabungan', 'siswa'))->with(['message' => 'Data Tabungan Berhasil diedit']);
     }
 
     public function update(Request $request, $id)
@@ -73,7 +73,7 @@ class TabunganController extends Controller
         $tabungan->siswa_id = $request->siswa_id;
         $tabungan->jumlah_uang = $request->jumlah_uang;
         $tabungan->save();
-        return redirect()->route('tabungan.index')->with(['message' => 'Data Siswa Berhasil disimpan']);
+        return redirect()->route('tabungan.index')->with(['message' => 'Data Tabungan Berhasil disimpan']);
     }
 
     public function destroy($id)
@@ -81,6 +81,6 @@ class TabunganController extends Controller
         $tabungan = Tabungan::findOrFail($id);
         $tabungan->delete();
         return redirect()->route('tabungan.index')
-            ->with(['message' => 'Data Siswa Berhasil diHapus']);
+            ->with(['message' => 'Data Tabungan Berhasil diHapus']);
     }
 }

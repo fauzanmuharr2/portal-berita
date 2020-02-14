@@ -13,21 +13,31 @@
                             {{ session('status') }}
                         </div>
                     @endif --}}
-                    <form action="{{route('siswa.store')}}" method="POST">
+                    <form action="{{route('siswa.store')}}" method="POST" enctype="multipart/form-data">
                         @csrf
 
                             <div class="row">
                                 <div class="col-md-6">
                                     <label for="">Masukan <b>Nama</b> Siswa</label>
                                 </div>
-                                <div class="col=md-8">
+                                <div class="col-md-12">
                                     <input type="text" class="form-control" name="nama" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="">Masukan <b>Kelas</b> Siswa</label>
                                 </div>
-                                <div class="col=md-8">
+                                <div class="col-md-12">
                                     <input type="text" class="form-control" name="kelas" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="">Pilih <b>Hobi</b> Siswa</label>
+                                </div>
+                                <div class="col-md-12">
+                                    <select class="form-control pilih-hobi" multiple name="hobi_id[]">
+                                        @foreach ($hobi as $item)
+                                    <option value="{{$item->id}}"> {{$item->hobi}} </option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <button class="btn btn-primary" type="submit">Simpan</button>
@@ -39,3 +49,13 @@
     </div>
 </div>
 @endsection
+
+
+@push('script')
+<script>
+    $(document).ready(function()
+    {
+        $('.pilih-hobi').select2();
+    });
+</script>
+@endpush

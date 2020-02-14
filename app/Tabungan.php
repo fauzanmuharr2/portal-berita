@@ -12,4 +12,5 @@ class Tabungan extends Model
     {
         return $this->belongsTo('App\Siswa', 'siswa_id');
     }
+
 }
